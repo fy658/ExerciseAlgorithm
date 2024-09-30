@@ -99,9 +99,9 @@ while curr_node:
 
 # 这是函数的开始。首先检查链表是否为空（not head）或只有一个节点（not head.next）。如果是，直接返回头节点，因为不需要重排。
 
-number_list = "1,2,3,4,5"
 class Solution3:
-    def create_linked_list(self):
+
+    def create_linked_list(self, number_list):
         dummmy = ListNode(0)
         curr = dummmy
         for val in number_list:
@@ -109,16 +109,23 @@ class Solution3:
             curr = curr.next
         return dummmy.next
 
-    def reorder_linked_list(self, head):
-        head = self.create_linked_list()
-        if not head:
+    def print_linked_list(self, head):
+        values = []
+        current = head
+        while current:
+            values.append(str(current.val))
+            current = current.next
+        return ",".join(values)
+
+    def reorder_linked_list(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
             return head
         # 找到链表中点
         slow, fast = head, head.next
         while fast and fast.next:
-            fast = fast.next
+            fast = fast.next.next
             slow = slow.next
-        # 分割链表
+            # 分割链表
         second_half = slow.next
         slow.next = None
 
@@ -134,17 +141,20 @@ class Solution3:
 
         # 合并两个链表
 
-        curr_1 = head
-        curr_2 = second_half
-        while curr_2:
-            temp_1 = curr_1.next
-            temp_2 = curr_2.next
-            curr_1.next = curr_2
-            curr_2.next = temp_1
-            temp_1 = temp_1.next
-            temp_2 = temp_2.next
+        first, second = head, second_half
+        while second:
+            next_first, next_second = first.next, second.next
+            first.next = second
+            second.next = next_first
+            first, second = next_first, next_second
 
         return head
+
+
+input_var = list(map(int, input().strip().split(",")))
+list_head = Solution3().create_linked_list(input_var)
+order_list = Solution3().reorder_linked_list(list_head)
+print(Solution3().print_linked_list(order_list))
 
 
 """
