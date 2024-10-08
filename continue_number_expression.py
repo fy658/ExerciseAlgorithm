@@ -50,5 +50,39 @@ for res in result:
     print(res)
 
 
+"""
+双指针滑动窗口解法
+"""
+array = [i+1 for i in range(target)]
+
+left, right, total = 0, 1, array[0]
+res = []
+while left<target:
+    if total>target:
+        total-=array[left]
+        left+=1
+    elif total==target:
+        res.append(array[left:right])
+        total -= array[left]
+        left += 1
+        if right >= target:
+            break
+        else:
+            total += array[right]
+            right += 1
+    else:
+        total += array[right]
+        right += 1
+
+res.sort(key=lambda x: len(x))
+for item in res:
+    print(f"{target}={'+'.join(map(str, item))}")
+
+
+
+
+
+
+
 
 
