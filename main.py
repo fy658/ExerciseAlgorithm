@@ -11,9 +11,13 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    m = 3
-    while m:
-        print(m)
-        m -= 1
+    # s = [False, False, False]
+    # for i in range(3):
+    #     if s[i]:
+    #         print(s[i])
+    #         continue
+    #     # print(s[i])
+    #     s[i] = True
+    print('hello','fangyu', sep="")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

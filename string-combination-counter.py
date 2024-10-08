@@ -42,16 +42,21 @@ abc 2
 
 
 def generate_diff_string(s, length, curr, res, used):
+    print("curr=", curr, used)
     if len(curr) == length:
         res.add(curr)
+        print("res", res)
         return
 
     for i in range(len(s)):
+        print("loop", i)
         if used[i] or (len(curr)>0 and curr[-1]==s[i]):
             continue
         used[i] = True
         generate_diff_string(s, length, curr+s[i], res, used)
+        print(curr+s[i])
         used[i] = False
+        print(used)
 
 
 def count_valid_strings(s, lenth):
@@ -79,3 +84,8 @@ except ValueError:
 
 # 计算并输出结果
 count_valid_strings(chars, length)
+
+
+"""
+
+"""
