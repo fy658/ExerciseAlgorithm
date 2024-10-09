@@ -22,4 +22,9 @@ if __name__ == '__main__':
     s = 'helloword'
     t= 'hellot'
     print(s.find(t))
+    # array1 = list(map(int, input().split()))[1:]
+    # print(array1)
+    print(float('-inf'))
+    t1, t2 = map(int, input().split())
+    print(t1, t2)
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
