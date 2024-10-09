@@ -19,5 +19,7 @@ if __name__ == '__main__':
     #     # print(s[i])
     #     s[i] = True
     print('hello','fangyu', sep="")
-
+    s = 'helloword'
+    t= 'hellot'
+    print(s.find(t))
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
