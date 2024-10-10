@@ -24,7 +24,12 @@ if __name__ == '__main__':
     print(s.find(t))
     # array1 = list(map(int, input().split()))[1:]
     # print(array1)
-    print(float('-inf'))
-    t1, t2 = map(int, input().split())
-    print(t1, t2)
+    # print(float('-inf'))
+    # t1, t2 = map(int, input().split())
+    # print(t1, t2)
+
+    array = [1,2,4,5]
+    print(array[1:8])
+    m = list(filter(lambda x: x != '', input().split(',')))
+    print(m)
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
